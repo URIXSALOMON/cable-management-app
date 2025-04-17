@@ -25,7 +25,7 @@ const App = () => {
 
   const fetchCables = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/cables');
+      const response = await axios.get('https://cable-management-app-production.up.railway.app/');
       setCables(response.data);
     } catch (error) {
       console.error('שגיאה בשליפת כבלים:', error);
@@ -34,7 +34,7 @@ const App = () => {
 
   const fetchConnections = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/connections');
+      const response = await axios.get('https://cable-management-app-production.up.railway.app/');
       setConnections(response.data);
     } catch (error) {
       console.error('שגיאה בשליפת חיבורים:', error);
@@ -45,7 +45,7 @@ const App = () => {
   const handleCableSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/cables', formData);
+      const response = await axios.post('https://cable-management-app-production.up.railway.app/', formData);
       setMessage(response.data.message);
       setFormData({ outlet_name: '', type: 'סיב אופטי', location: '', status: 'פעיל' });
       fetchCables();
@@ -58,7 +58,7 @@ const App = () => {
   const handleConnectionSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/connections', connectionForm);
+      const response = await axios.post('https://cable-management-app-production.up.railway.app/', connectionForm);
       setMessage(response.data.message);
       setConnectionForm({ cable1_id: '', cable2_id: '' });
       fetchConnections();
